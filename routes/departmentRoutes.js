@@ -4,14 +4,10 @@ const db = require('../db/connection');
 
 // view all departments
 router.get('/departments', (req, res) => {
-  db.query('SELECT * FROM department', (err, data) => {
+  db.query('SELECT * FROM departments', (err, data) => {
     if (err) throw err;
     res.json(data);
   });
-});
-
-app.use((req, res) => {
-  res.status(404).end();
 });
 
 module.exports = router;

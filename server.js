@@ -11,9 +11,23 @@ app.use((req, res) => {
   res.status(404).end();
 });
 
+db.query('SELECT * FROM departments', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+db.query('SELECT * FROM roles', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+db.query('SELECT * FROM employees', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+
 db.connect(err => {
   if (err) throw err;
   app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
   });
 });
+
