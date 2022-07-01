@@ -9,3 +9,9 @@ router.get('/departments', (req, res) => {
     res.json(data);
   });
 });
+
+app.use((req, res) => {
+  res.status(404).end();
+});
+
+module.exports = router;
