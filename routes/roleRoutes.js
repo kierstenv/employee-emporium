@@ -35,3 +35,5 @@ router.get('/roles/:id', (req, res) => {
 //   if (err) throw err;
 //   res.json(data);
 // });
+
+module.exports = router;

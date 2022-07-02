@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
 
-// view all employees
+// GET all employees
 router.get('/employees', (req, res) => {
   db.query('SELECT * FROM employees', (err, data) => {
     if (err) throw err;
@@ -25,3 +25,5 @@ router.delete('/employees/:id', (req, res) => {
     res.json(data);
   });
 });
+
+module.exports = router;
