@@ -18,4 +18,12 @@ router.get('/departments/:id', (req, res) => {
   });
 });
 
+// DELETE a single department by id
+router.delete('/departments/:id', (req, res) => {
+  db.query('DELETE FROM departments WHERE id = ?', [req.params.id], (err, data) => {
+    if (err) throw err;
+    res.json(data);
+  });
+});
+
 module.exports = router;
