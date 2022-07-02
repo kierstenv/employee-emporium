@@ -18,6 +18,14 @@ router.get('/roles/:id', (req, res) => {
   });
 });
 
+// POST a new role
+router.post('/roles', (req, res) => {
+  db.query('INSERT INTO roles SET ?', [req.body], (err, data) => {
+    if (err) throw err;
+    res.json(data);
+  });
+});
+
 // DELETE a role by id
 router.delete('/roles/:id', (req, res) => {
   db.query('DELETE FROM roles WHERE id = ?', [req.params.id], (err, data) => {

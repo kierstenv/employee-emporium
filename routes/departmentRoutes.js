@@ -18,6 +18,14 @@ router.get('/departments/:id', (req, res) => {
   });
 });
 
+// POST a new department
+router.post('/departments', (req, res) => {
+  db.query('INSERT INTO departments SET ?', [req.body], (err, data) => {
+    if (err) throw err;
+    res.json(data);
+  });
+});
+
 // DELETE a single department by id
 router.delete('/departments/:id', (req, res) => {
   db.query('DELETE FROM departments WHERE id = ?', [req.params.id], (err, data) => {
